@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\ProjectTaskController;
+use App\Http\Controllers\BandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +41,6 @@ Route::get('/projects/{project}/tasks/{task}',
     [ProjectTaskController::class, 'show'])->scopeBindings();   
 Route::delete('/projects/{project}/tasks/{task}', 
     [ProjectTaskController::class, 'destroy'])->name('projectTasks.destroy')->scopeBindings();
+
+
+Route::resource('bands', BandController::class);
