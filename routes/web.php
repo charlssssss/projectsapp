@@ -18,7 +18,7 @@ use App\Http\Controllers\BandController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/home');
 });
 
 Route::get('/projects', [ProjectController::class, 'index']);
@@ -44,3 +44,7 @@ Route::delete('/projects/{project}/tasks/{task}',
 
 
 Route::resource('bands', BandController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
